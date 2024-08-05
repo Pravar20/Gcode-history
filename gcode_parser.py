@@ -10,7 +10,7 @@ class GcodeWriter:
         self.m_x_amt = 3
         self.m_y_amt = 10
         self.m_z_amt = 45
-        self.m_f_amt = 3000
+        self.m_f_amt = 2000
 
         self.m_soder_amt = 55
         self.m_retract_soder_amt = 50
@@ -161,7 +161,7 @@ class GcodeWriter:
             cd += f'color_up({self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
         # Change axis for double side
-        cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff + 2},{-y_max},,,,)\n'
+        cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
         # cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff + 2},{0},,,,)\n'
 
         for y_cnt, y in enumerate(y_lst):
@@ -173,7 +173,7 @@ class GcodeWriter:
 
             cd += f'color_up({-self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
-        cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff + 2)},{-y_max},,,,)\n'
+        cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff)},{-y_max},,,,)\n'
         cd += f'end()\n'
 
         code_write = open(self.m_file_name, 'w')
