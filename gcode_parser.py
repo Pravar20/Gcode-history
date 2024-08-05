@@ -212,20 +212,20 @@ class GcodeWriter:
     def __color_up(self, param_lst):
         x, y, z, f, s, _ = self.param_dft(param_lst)
         code = f'; Color a strip of length {y}, width {x}.\n'
-
+        # Spread color on this strip segment.
         code += self.base_steps['move_y'](y, self.m_f_amt)
         code += self.base_steps['move_y'](-y, self.m_f_amt)
+        code += self.base_steps['move_y'](y, f)
 
-        code += self.base_steps['move_y'](y // 2, f)
-        # code += self.__feed_soder([x, y, z, self.m_f_amt, self.m_retract_soder_amt + (s - self.m_retract_soder_amt) // 2])
-        code += self.base_steps['move_y'](y // 2, f)
-
+        # Go back and over by x
         code += self.base_steps['move_z'](5, self.m_f_amt)
         code += self.base_steps['move_xy'](x, -y, self.m_f_amt)
         code += self.base_steps['move_z'](-5, self.m_f_amt)
 
+        # Refill on solder
         code += self.__feed_soder([x, y, z, self.m_f_amt, self.m_retract_soder_amt + (s - self.m_retract_soder_amt) // 2])
 
+        # Redo paint similar as before.
         code += self.base_steps['move_y'](y, self.m_f_amt)
         code += self.base_steps['move_y'](-y, self.m_f_amt)
 
