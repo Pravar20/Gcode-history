@@ -3,6 +3,7 @@ import copy
 import re
 import os
 import numpy as np
+import sys
 
 
 class GcodeWriter:
@@ -49,18 +50,53 @@ class GcodeWriter:
             'end': lambda: self.base_steps['move_z'](self.m_end_z_pos, self.m_f_amt) + self.base_steps['stop_spin']()
         }
     
-    # Update methods
-    def update_x(self, amt): self.m_x_amt = amt
-    def update_y(self, amt): self.m_y_amt = amt
-    def update_z(self, amt): self.m_z_amt = amt
-    def update_f(self, amt): self.m_f_amt = amt
-    def update_z_f(self, amt): self.m_slow_f_amt = amt
-    
+    # ________________________________Update methods_______________________________________
+    def update_m_x_amt(self, amt): self.m_x_amt = amt
+    def update_m_y_amt(self, amt): self.m_y_amt = amt
+    def update_m_z_amt(self, amt): self.m_z_amt = amt
+    def update_m_f_amt(self, amt): self.m_f_amt = amt
+    def update_m_soder_amt(self, amt): self.m_soder_amt = amt
+    def update_m_retract_soder_amt(self, amt): self.m_retract_soder_amt = amt
+    def update_m_slow_f_amt(self, amt): self.m_slow_f_amt = amt
+    def update_m_color_thickness(self, amt): self.m_color_thickness = amt
+    def update_m_x_advance_amt(self, amt): self.m_x_advance_amt = amt
+    def update_m_rest_xy(self, amt): self.m_rest_xy = amt
+    def update_m_end_z_pos(self, amt): self.m_end_z_pos = amt
+    def update_m_split_groups(self, amt): self.m_split_groups = amt
+    def update_m_soder_step(self, amt): self.m_soder_step = amt
+    def update_m_dft_glass_size(self, amt): self.m_dft_glass_size = amt
+    def update_m_tip_diff(self, amt): self.m_tip_diff = amt
+    def update_m_is_edge(self, amt): self.m_is_edge = amt
+    def update_m_file_name(self, amt): self.m_file_name = amt
+    def update_m_write_file(self, amt): self.m_write_file = amt
+
+    def run_func(self, fn_str):
+        return exec(fn_str)
+
+    def change_class_variables(self):
+        print("Enter log value to replace the class variables by (Ctrl+D (UNIX) or Ctrl+Z + Enter (Win) to end input):")
+        log_values = sys.stdin.readlines()
+        values = []
+        for value in log_values:
+            name, val = value.split(': ')
+            name, val = name.strip(), val.strip()
+            # If not a file name then eval, else leave as is
+            if 'file' not in name:
+                val = eval(val.strip())
+            else:
+                val = f'\'{val}\''
+                val = val.replace('\\', '\\\\')
+            values.append(('update_' + name, val))
+
+        for pair in values:
+            self.run_func(f'self.{pair[0]}({pair[1]})')
+
+    # _____________________________________________________________________________________
+
     def param_dft(self, lst):
         # List pad with None.
         if len(lst) != 6:
             lst += [None] * (6-len(lst))
-        
         # X dft.
         if lst[0] is None:
             lst[0] = self.m_x_amt
@@ -162,7 +198,6 @@ class GcodeWriter:
 
         # Change axis for double side
         cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
-        # cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff + 2},{0},,,,)\n'
 
         for y_cnt, y in enumerate(y_lst):
             # First one; add more soder.
@@ -271,4 +306,12 @@ class GcodeWriter:
 
 if __name__ == '__main__':
     G = GcodeWriter()
-    G.run()
+    if len(sys.argv) == 3 and sys.argv[2] == 'custom':
+        print('change')
+        G.change_class_variables()
+    if len(sys.argv) == 2 and sys.argv[1] == 'code':
+        print('compile')
+        G.compile_code()
+    else:
+        print('run')
+        G.run()
