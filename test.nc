@@ -1,6 +1,25 @@
 G21     ; Millimiter Units
 G91     ; Relative mode
 M3 S9000
+; Feed 59 amount of soder.
+G1 Z45 F2000
+G1 A-59 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
 ; Feed 55 amount of soder.
 G1 Z45 F2000
 G1 A-55 F2000
@@ -8,259 +27,574 @@ G1 A-55 F2000
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width 3.
-G1 Y20 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y20 F100
-G1 X3 Y-20 F2000
-G1 Y20 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 12, width 3.
-G1 Y12 F2000
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
 G1 X3 F2000
-G1 Y-12 F2000
+G1 Y-10 F2000
 G1 X-3 F2000
-G1 Y12 F100
-G1 X3 Y-12 F2000
-G1 Y12 F100
-G1 X-3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width 3.
+G1 Y10 F2000
+G1 X3 F2000
+G1 Y-10 F2000
+G1 X-3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X-3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 2, width 3.
+G1 Y2 F2000
+G1 X3 F2000
+G1 Y-2 F2000
+G1 X-3 F2000
+G1 Y2 F75
+G1 Z5 F2000
+G1 X3 Y-2 F2000
+G1 Z-5 F2000
+G1 Y2 F75
+G1 X-3 F75
 
 ; Change axis to (x, y, z): (292, -292, 45).
 G1 Z45 F2000
 G1 X292 Y-292 F2000
 G1 Z-45 F2000
 
+; Feed 59 amount of soder.
+G1 Z45 F2000
+G1 A-59 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
 ; Feed 55 amount of soder.
 G1 Z45 F2000
 G1 A-55 F2000
@@ -268,253 +602,549 @@ G1 A-55 F2000
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 20, width -3.
-G1 Y20 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-20 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y20 F100
-G1 X-3 Y-20 F2000
-G1 Y20 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
 
-; Feed 53 amount of soder.
+; Feed 55 amount of soder.
 G1 Z45 F2000
-G1 A-53 F2000
+G1 A-55 F2000
 ; Retract 50 soder
 G1 A50 F2000
 G1 Z-45 F2000
 
-; Color a strip of length 12, width -3.
-G1 Y12 F2000
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
 G1 X-3 F2000
-G1 Y-12 F2000
+G1 Y-10 F2000
 G1 X3 F2000
-G1 Y12 F100
-G1 X-3 Y-12 F2000
-G1 Y12 F100
-G1 X3 F100
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 10, width -3.
+G1 Y10 F2000
+G1 X-3 F2000
+G1 Y-10 F2000
+G1 X3 F2000
+G1 Y10 F75
+G1 Z5 F2000
+G1 X-3 Y-10 F2000
+G1 Z-5 F2000
+G1 Y10 F75
+G1 X3 F75
+
+; Feed 55 amount of soder.
+G1 Z45 F2000
+G1 A-55 F2000
+; Retract 50 soder
+G1 A50 F2000
+G1 Z-45 F2000
+
+; Color a strip of length 2, width -3.
+G1 Y2 F2000
+G1 X-3 F2000
+G1 Y-2 F2000
+G1 X3 F2000
+G1 Y2 F75
+G1 Z5 F2000
+G1 X-3 Y-2 F2000
+G1 Z-5 F2000
+G1 Y2 F75
+G1 X3 F75
 
 ; Change axis to (x, y, z): (-292, -292, 45).
 G1 Z45 F2000
