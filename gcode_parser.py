@@ -9,14 +9,14 @@ import sys
 class GcodeWriter:
     def __init__(self, read_file=None, write_file=None):
         self.m_x_amt = 3
-        self.m_y_amt = 10
+        self.m_y_amt = 20
         self.m_z_amt = 45
         self.m_f_amt = 2000
 
-        self.m_soder_amt = 55
+        self.m_soder_amt = 53
         self.m_retract_soder_amt = 50
 
-        self.m_slow_f_amt = 75
+        self.m_slow_f_amt = 100
         self.m_color_thickness = 0
         self.m_x_advance_amt = 0
 
@@ -188,9 +188,9 @@ class GcodeWriter:
 
         cd = ''
         for y_cnt, y in enumerate(y_lst):
-            # First one; add more soder.
+            # First one; add more solder
             if y_cnt == 0:
-                cd += f'feed_soder(,{y},,,{self.m_soder_amt + 4},)\n'
+                cd += f'feed_soder(,{y},,,{self.m_soder_amt + 2},)\n'
             elif y_cnt % self.m_soder_step == 0:
                 cd += f'feed_soder(,,{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
 
@@ -200,9 +200,9 @@ class GcodeWriter:
         cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
 
         for y_cnt, y in enumerate(y_lst):
-            # First one; add more soder.
+            # First one; add more solder
             if y_cnt == 0:
-                cd += f'feed_soder(,{y},,,{self.m_soder_amt + 4},)\n'
+                cd += f'feed_soder(,{y},,,{self.m_soder_amt + 2},)\n'
             elif y_cnt % self.m_soder_step == 0:
                 cd += f'feed_soder(,,{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
 
@@ -249,23 +249,25 @@ class GcodeWriter:
         code = f'; Color a strip of length {y}, width {x}.\n'
         # Spread color on this strip segment.
         code += self.base_steps['move_y'](y, self.m_f_amt)
+        code += self.base_steps['move_x'](x, self.m_f_amt)
         code += self.base_steps['move_y'](-y, self.m_f_amt)
+        code += self.base_steps['move_x'](-x, self.m_f_amt)
+
         code += self.base_steps['move_y'](y, f)
 
         # Go back and over by x
-        code += self.base_steps['move_z'](5, self.m_f_amt)
+        # code += self.base_steps['move_z'](5, self.m_f_amt)
         code += self.base_steps['move_xy'](x, -y, self.m_f_amt)
-        code += self.base_steps['move_z'](-5, self.m_f_amt)
+        # code += self.base_steps['move_z'](-5, self.m_f_amt)
 
-        # Refill on solder
-        code += self.__feed_soder([x, y, z, self.m_f_amt, self.m_retract_soder_amt + (s - self.m_retract_soder_amt) // 2])
-
-        # Redo paint similar as before.
-        code += self.base_steps['move_y'](y, self.m_f_amt)
-        code += self.base_steps['move_y'](-y, self.m_f_amt)
-
-        code += self.base_steps['move_y'](y // 2, f)
-        code += self.base_steps['move_y'](y // 2, f)
+        # # Refill on solder
+        # code += self.__feed_soder([x, y, z, self.m_f_amt, self.m_retract_soder_amt + (s - self.m_retract_soder_amt) // 2])
+        #
+        # # Redo paint similar as before.
+        # code += self.base_steps['move_y'](y, self.m_f_amt)
+        # code += self.base_steps['move_y'](-y, self.m_f_amt)
+        #
+        code += self.base_steps['move_y'](y, f)
         code += self.base_steps['move_x'](-x, f)
         return code + '\n'
 
