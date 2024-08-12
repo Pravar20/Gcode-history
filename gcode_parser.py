@@ -13,7 +13,7 @@ class GcodeWriter:
         self.m_z_amt = 45
         self.m_f_amt = 2000
 
-        self.m_soder_amt = 54
+        self.m_soder_amt = 55
         self.m_retract_soder_amt = 50
 
         self.m_slow_f_amt = 75
@@ -29,7 +29,7 @@ class GcodeWriter:
 
         self.m_dft_glass_size = 304
 
-        self.m_tip_diff = 12
+        self.m_tip_diff = 10
         self.m_is_edge = True
 
         self.m_file_name = "C:\\Users\\Admin\\Desktop\\PreTin Code\\code.txt" if read_file is None else read_file
@@ -232,7 +232,7 @@ class GcodeWriter:
             cd += f'color_up({self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
         # Change axis for double side
-        cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff + 2},{-y_max},,,,)\n'
+        cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
 
         for y_cnt, y in enumerate(y_lst):
             # First one; add more soder.
@@ -243,7 +243,7 @@ class GcodeWriter:
 
             cd += f'color_up({-self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
-        cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff + 2)},{-y_max},,,,)\n'
+        cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff)},{-y_max},,,,)\n'
         cd += f'end()\n'
 
         code_write = open(self.m_file_name, 'w')
@@ -290,8 +290,8 @@ class GcodeWriter:
             code += self.base_steps['move_y'](-y, self.m_f_amt)
         code += self.base_steps['move_x'](-(x * self.m_color_thickness), self.m_f_amt)
 
-        # Refill on solder
-        code += '\n' + self.__feed_soder([x, y, z, self.m_f_amt, self.m_retract_soder_amt + (s - self.m_retract_soder_amt) // 2])
+        # # Refill on solder
+        # code += '\n' + self.__feed_soder([x, y, z, self.m_f_amt, self.m_retract_soder_amt + (s - self.m_retract_soder_amt) // 2])
 
         code += f'; Massage the solder onto the segment.\n'
         # Extensively go over the segment slowly massaging the solder in.
