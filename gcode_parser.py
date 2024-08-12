@@ -293,13 +293,22 @@ class GcodeWriter:
         # # Refill on solder
         # code += '\n' + self.__feed_soder([x, y, z, self.m_f_amt, self.m_retract_soder_amt + (s - self.m_retract_soder_amt) // 2])
 
+        # code += f'; Massage the solder onto the segment.\n'
+        # # Extensively go over the segment slowly massaging the solder in.
+        # # for _ in range(self.m_color_thickness):
+        # code += self.base_steps['move_y'](y, f)
+        # code += self.base_steps['move_xyz'](x * self.m_color_thickness, -y, 5, self.m_f_amt)
+        # code += self.base_steps['move_z'](-5, self.m_f_amt)
+        # code += self.base_steps['move_y'](y, f)
+        # code += self.base_steps['move_x'](-(x * self.m_color_thickness), self.m_f_amt)
+
         code += f'; Massage the solder onto the segment.\n'
         # Extensively go over the segment slowly massaging the solder in.
-        # for _ in range(self.m_color_thickness):
-        code += self.base_steps['move_y'](y, f)
-        code += self.base_steps['move_xyz'](x * self.m_color_thickness, -y, 5, self.m_f_amt)
-        code += self.base_steps['move_z'](-5, self.m_f_amt)
-        code += self.base_steps['move_y'](y, f)
+        for _ in range(self.m_color_thickness):
+            code += self.base_steps['move_y'](y, f)
+            code += self.base_steps['move_xyz'](x, -y, 5, self.m_f_amt)
+            code += self.base_steps['move_z'](-5, self.m_f_amt)
+            code += self.base_steps['move_y'](y, f)
         code += self.base_steps['move_x'](-(x * self.m_color_thickness), self.m_f_amt)
 
         # # Redo paint similar as before.
