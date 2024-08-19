@@ -8,7 +8,7 @@ import sys
 
 class GcodeWriter:
     def __init__(self, read_file=None, write_file=None):
-        self.m_x_amt = 20
+        self.m_x_amt = 30
         self.m_y_amt = 3
         self.m_z_amt = 45
         self.m_f_amt = 2000
