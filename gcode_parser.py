@@ -231,19 +231,20 @@ class GcodeWriter:
 
             cd += f'color_up({self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
-        # Change axis for double side
-        cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
+        # # Change axis for double side
+        # cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
+        #
+        # for y_cnt, y in enumerate(y_lst):
+        #     # First one; add more soder.
+        #     if y_cnt == 0:
+        #         cd += f'feed_soder(,{y},,,{self.m_soder_amt + 4},)\n'
+        #     elif y_cnt % self.m_soder_step == 0:
+        #         cd += f'feed_soder(,,{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
+        #
+        #     cd += f'color_up({-self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
-        for y_cnt, y in enumerate(y_lst):
-            # First one; add more soder.
-            if y_cnt == 0:
-                cd += f'feed_soder(,{y},,,{self.m_soder_amt + 4},)\n'
-            elif y_cnt % self.m_soder_step == 0:
-                cd += f'feed_soder(,,{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
-
-            cd += f'color_up({-self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
-
-        cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff)},{-y_max},,,,)\n'
+        # cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff)},{-y_max},,,,)\n'
+        cd += f'change_axis({0},{-y_max},,,,)\n'
         cd += f'end()\n'
 
         code_write = open(self.m_file_name, 'w')
