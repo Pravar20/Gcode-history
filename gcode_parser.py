@@ -8,15 +8,15 @@ import sys
 
 class GcodeWriter:
     def __init__(self, read_file=None, write_file=None):
-        self.m_x_amt = 3
-        self.m_y_amt = 20
+        self.m_x_amt = 20
+        self.m_y_amt = 3
         self.m_z_amt = 45
         self.m_f_amt = 2000
 
         self.m_soder_amt = 62
         self.m_retract_soder_amt = 54
 
-        self.m_slow_f_amt = 75
+        self.m_slow_f_amt = 200
         self.m_color_thickness = 4
         self.m_x_advance_amt = 0
 
@@ -206,30 +206,30 @@ class GcodeWriter:
             except ValueError as e:
                 print(mm_size, ' is not an int.\n', e)
 
-        paint_step = self.m_y_amt
-        y_lst = [paint_step for _ in range(0, (self.m_dft_glass_size - self.m_tip_diff), paint_step)][:-1]
-        y_lst = y_lst + [(self.m_dft_glass_size - self.m_tip_diff) % paint_step]
+        paint_step = self.m_x_amt
+        x_lst = [paint_step for _ in range(0, (self.m_dft_glass_size - self.m_tip_diff), paint_step)][:-1]
+        x_lst = x_lst + [(self.m_dft_glass_size - self.m_tip_diff) % paint_step]
 
         # # TODO: TEST CODE
-        # print(y_lst, len(y_lst), sum(y_lst))
-        # a = copy.deepcopy(y_lst)
+        # print(x_lst, len(x_lst), sum(x_lst))
+        # a = copy.deepcopy(x_lst)
         # for y, idx in zip(a[:], range(len(a[:]))):
         #     a[idx] = y + paint_step*idx
         # print(a, len(a))
         # exit(0)
 
         # Calc the max amount of y, y movement.
-        y_max = sum(y_lst)
+        x_max = sum(x_lst)
 
         cd = ''
-        for y_cnt, y in enumerate(y_lst):
+        for x_cnt, x in enumerate(x_lst):
             # First one; add more soder.
-            if y_cnt == 0:
-                cd += f'feed_soder(,{y},,,{self.m_soder_amt + 4},)\n'
-            elif y_cnt % self.m_soder_step == 0:
+            if x_cnt == 0:
+                cd += f'feed_soder({x},,,,{self.m_soder_amt + 4},)\n'
+            elif x_cnt % self.m_soder_step == 0:
                 cd += f'feed_soder(,,{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
 
-            cd += f'color_up({self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
+            cd += f'color_right({x},,{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
         # # Change axis for double side
         # cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
@@ -244,7 +244,7 @@ class GcodeWriter:
         #     cd += f'color_up({-self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
         # cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff)},{-y_max},,,,)\n'
-        cd += f'change_axis({0},{-y_max},,,,)\n'
+        cd += f'change_axis({-x_max},{0},,,,)\n'
         cd += f'end()\n'
 
         code_write = open(self.m_file_name, 'w')
@@ -252,32 +252,26 @@ class GcodeWriter:
         code_write.close()
 
     def __color_right(self, param_lst):
-        x, y, _, f, _, is_edge = self.param_dft(param_lst)
-
-        code = f'; Color a strip of length {x}, width {y * self.m_color_thickness}.\n'
-        if is_edge:
-            code += f'; Edge strip, extra step.\n'
-        # Paint 'color_thickness' times.
+        x, y, z, f, s, _ = self.param_dft(param_lst)
+        code = f'; Color a strip of length {x}, width {y}.\n'
+        # Spread color on half strip segment.
+        code += f'; Spread solder on the segment.\n'
         for _ in range(self.m_color_thickness):
-            # if edge do it twice.
-            if is_edge:
-                code += self.base_steps['move_x'](x, f)
-                code += self.base_steps['move_x'](-x, f)
+            code += self.base_steps['move_x'](x, self.m_f_amt)
+            code += self.base_steps['move_y'](y, self.m_f_amt)
+            code += self.base_steps['move_x'](-x, self.m_f_amt)
+        code += self.base_steps['move_y'](-(y * self.m_color_thickness), self.m_f_amt)
 
-            # Go right by given.
+        # Extensively go over the segment slowly massaging the solder in.
+        code += f'; Massage the solder onto the segment.\n'
+        code += self.base_steps['move_x'](x, f)
+        for _ in range(self.m_color_thickness // 2):
+            code += self.base_steps['move_xyz'](-x, y * 2, 5, self.m_f_amt)
+            code += self.base_steps['move_z'](-5, self.m_f_amt)
             code += self.base_steps['move_x'](x, f)
-            # While back up by 1
-            code += self.base_steps['move_xy'](-x, y, f)
+        code += self.base_steps['move_xyz'](0, -(y * self.m_color_thickness), 5, self.m_f_amt)
+        code += self.base_steps['move_z'](-5, self.m_f_amt)
 
-            # TODO: Temp test to see if still good.
-            # Do it again
-            # code += self.base_steps['move_x'](x, f)
-            # code += self.base_steps['move_x'](-x, f)
-
-            # code += self.base_steps['move_x'](x, f)
-
-        # Prime next step with y reset.
-        code += self.base_steps['move_xy'](self.m_x_advance_amt, -y * self.m_color_thickness, f)
         return code + '\n'
 
     # def __color_up(self, param_lst):
@@ -341,11 +335,12 @@ class GcodeWriter:
 
         # Extensively go over the segment slowly massaging the solder in.
         code += f'; Massage the solder onto the segment.\n'
-        for _ in range(self.m_color_thickness):
-            code += self.base_steps['move_y'](y, f)
-            code += self.base_steps['move_xyz'](x, -y, 5, self.m_f_amt)
+        code += self.base_steps['move_y'](y, f)
+        for _ in range(self.m_color_thickness // 2):
+            code += self.base_steps['move_xyz'](x * 2, -y, 5, self.m_f_amt)
             code += self.base_steps['move_z'](-5, self.m_f_amt)
-        code += self.base_steps['move_xyz'](-(x * self.m_color_thickness), y, 5, self.m_f_amt)
+            code += self.base_steps['move_y'](y, f)
+        code += self.base_steps['move_xyz'](-(x * self.m_color_thickness), 0, 5, self.m_f_amt)
         code += self.base_steps['move_z'](-5, self.m_f_amt)
 
         return code + '\n'
