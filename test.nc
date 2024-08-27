@@ -1,11 +1,11 @@
 G21     ; Millimiter Units
 G91     ; Relative mode
 M3 S9000
-; Feed 4 amount of soder.
+; Feed 66 amount of soder.
 G1 Z45 F2000
-G1 A-4 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-66 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -24,11 +24,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -47,11 +47,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -70,11 +70,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -93,11 +93,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -116,11 +116,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -139,11 +139,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -162,11 +162,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -185,11 +185,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 30, width 3.
@@ -208,11 +208,11 @@ G1 Y3 F1000
 G1 X-30 F1000
 G1 X30 Y-12 F2000
 
-; Feed 0 amount of soder.
+; Feed 62 amount of soder.
 G1 Z45 F2000
-G1 A0 F2000
-; Retract 0 soder
-G1 A0 F2000
+G1 A-62 F2000
+; Retract 54 soder
+G1 A54 F2000
 G1 Z-45 F2000
 
 ; Color a strip of length 24, width 3.

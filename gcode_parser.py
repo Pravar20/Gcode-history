@@ -13,11 +13,8 @@ class GcodeWriter:
         self.m_z_amt = 45
         self.m_f_amt = 2000
 
-        self.m_soder_amt = 0
-        self.m_retract_soder_amt = 0
-
-        # self.m_soder_amt = 62
-        # self.m_retract_soder_amt = 54
+        self.m_soder_amt = 62
+        self.m_retract_soder_amt = 54
 
         self.m_slow_f_amt = 1000
         self.m_color_thickness = 4
