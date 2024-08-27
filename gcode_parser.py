@@ -13,10 +13,13 @@ class GcodeWriter:
         self.m_z_amt = 45
         self.m_f_amt = 2000
 
-        self.m_soder_amt = 62
-        self.m_retract_soder_amt = 54
+        self.m_soder_amt = 0
+        self.m_retract_soder_amt = 0
 
-        self.m_slow_f_amt = 200
+        # self.m_soder_amt = 62
+        # self.m_retract_soder_amt = 54
+
+        self.m_slow_f_amt = 1000
         self.m_color_thickness = 4
         self.m_x_advance_amt = 0
 
@@ -257,20 +260,20 @@ class GcodeWriter:
         # Spread color on half strip segment.
         code += f'; Spread solder on the segment.\n'
         for _ in range(self.m_color_thickness):
-            code += self.base_steps['move_x'](x, self.m_f_amt)
-            code += self.base_steps['move_y'](y, self.m_f_amt)
-            code += self.base_steps['move_x'](-x, self.m_f_amt)
-        code += self.base_steps['move_y'](-(y * self.m_color_thickness), self.m_f_amt)
+            code += self.base_steps['move_x'](x, self.m_slow_f_amt)
+            code += self.base_steps['move_y'](y, self.m_slow_f_amt)
+            code += self.base_steps['move_x'](-x, self.m_slow_f_amt)
+        code += self.base_steps['move_xy'](x, -(y * self.m_color_thickness), self.m_f_amt)
 
-        # Extensively go over the segment slowly massaging the solder in.
-        code += f'; Massage the solder onto the segment.\n'
-        code += self.base_steps['move_x'](x, f)
-        for _ in range(self.m_color_thickness // 2):
-            code += self.base_steps['move_xyz'](-x, y * 2, 5, self.m_f_amt)
-            code += self.base_steps['move_z'](-5, self.m_f_amt)
-            code += self.base_steps['move_x'](x, f)
-        code += self.base_steps['move_xyz'](0, -(y * self.m_color_thickness), 5, self.m_f_amt)
-        code += self.base_steps['move_z'](-5, self.m_f_amt)
+        # # Extensively go over the segment slowly massaging the solder in.
+        # code += f'; Massage the solder onto the segment.\n'
+        # code += self.base_steps['move_x'](x, f)
+        # for _ in range(self.m_color_thickness // 2):
+        #     code += self.base_steps['move_xyz'](-x, y * 2, 5, self.m_f_amt)
+        #     code += self.base_steps['move_z'](-5, self.m_f_amt)
+        #     code += self.base_steps['move_x'](x, f)
+        # code += self.base_steps['move_xyz'](0, -(y * self.m_color_thickness), 5, self.m_f_amt)
+        # code += self.base_steps['move_z'](-5, self.m_f_amt)
 
         return code + '\n'
 
