@@ -12,12 +12,16 @@ class GcodeWriter:
         self.m_y_amt = 3
         self.m_z_amt = 45
         self.m_f_amt = 2000
+        self.m_spin_rate = 4500
 
-        self.m_soder_amt = 62
+        self.m_soder_amt = 60
         self.m_retract_soder_amt = 54
 
+        # self.m_soder_amt = 0
+        # self.m_retract_soder_amt = 0
+
         self.m_slow_f_amt = 1000
-        self.m_color_thickness = 4
+        self.m_color_thickness = 5
         self.m_x_advance_amt = 0
 
         self.m_rest_xy = 250
@@ -36,8 +40,8 @@ class GcodeWriter:
         self.m_write_file = "C:\\Users\\Admin\\Desktop\\PreTin Code\\test.nc" if write_file is None else write_file
 
         self.base_steps = {
-            'start': lambda: f'G21     ; Millimiter Units\nG91     ; Relative mode\n' + self.base_steps['spin'](),
-            'spin': lambda: f'M3 S9000\n',
+            'start': lambda: f'G21     ; Millimiter Units\nG91     ; Relative mode\n' + self.base_steps['spin'](self.m_spin_rate),
+            'spin': lambda sr: f'M3 S{sr}\n',
             'stop_spin': lambda: f'M5\n',
             'move_x': lambda x, f: f'G1 X{x} F{f}\n',
             'move_y': lambda y, f: f'G1 Y{y} F{f}\n',
@@ -257,10 +261,11 @@ class GcodeWriter:
         # Spread color on half strip segment.
         code += f'; Spread solder on the segment.\n'
         for _ in range(self.m_color_thickness):
-            code += self.base_steps['move_x'](x, self.m_slow_f_amt)
-            code += self.base_steps['move_y'](y, self.m_slow_f_amt)
-            code += self.base_steps['move_x'](-x, self.m_slow_f_amt)
-        code += self.base_steps['move_xy'](x, -(y * self.m_color_thickness), self.m_f_amt)
+            code += self.base_steps['move_x'](x, self.m_f_amt)
+            code += self.base_steps['move_y'](y, self.m_f_amt)
+            code += self.base_steps['move_x'](-x, self.m_f_amt)
+        code += self.base_steps['move_z'](5, self.m_f_amt)
+        code += self.base_steps['move_xyz'](x, -(y * self.m_color_thickness), -5, self.m_f_amt)
 
         # # Extensively go over the segment slowly massaging the solder in.
         # code += f'; Massage the solder onto the segment.\n'
@@ -349,10 +354,12 @@ class GcodeWriter:
         _, _, z, f, s, *_ = self.param_dft(param_lst)
         # Feed soder.
         code = f'; Feed {s} amount of soder.\n'
+        code += self.base_steps['spin'](self.m_spin_rate // 4)
         code += self.base_steps['move_z'](z, f)
         code += self.base_steps['feed'](-s, f)
         code += f'; Retract {self.m_retract_soder_amt} soder\n'
         code += self.base_steps['feed'](self.m_retract_soder_amt, f)
+        code += self.base_steps['spin'](self.m_spin_rate)
         code += self.base_steps['move_z'](-z, f)
         return code + '\n'
 
