@@ -15,7 +15,7 @@ class GcodeWriter:
         self.m_spin_rate = 4500
 
         self.m_soder_amt = 60
-        self.m_retract_soder_amt = 54
+        self.m_retract_soder_amt = 55
 
         # self.m_soder_amt = 0
         # self.m_retract_soder_amt = 0
@@ -226,14 +226,15 @@ class GcodeWriter:
         x_max = sum(x_lst)
 
         cd = ''
+        # Change to top axis
         for x_cnt, x in enumerate(x_lst):
             # First one; add more soder.
             if x_cnt == 0:
-                cd += f'feed_soder({x},,,,{self.m_soder_amt + 4},)\n'
+                cd += f'feed_soder({x},{-self.m_y_amt},{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt + 4},)\n'
             elif x_cnt % self.m_soder_step == 0:
-                cd += f'feed_soder(,,{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
+                cd += f'feed_soder({x},{-self.m_y_amt},{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
 
-            cd += f'color_right({x},,{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
+            cd += f'color_right({x},{-self.m_y_amt},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
         # # Change axis for double side
         # cd += f'change_axis({self.m_dft_glass_size - self.m_tip_diff},{-y_max},,,,)\n'
@@ -245,7 +246,7 @@ class GcodeWriter:
         #     elif y_cnt % self.m_soder_step == 0:
         #         cd += f'feed_soder(,,{self.m_z_amt},{self.m_f_amt},{self.m_soder_amt},)\n'
         #
-        #     cd += f'color_up({-self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
+        #     cd += f'color_right({-self.m_x_amt},{y},{self.m_z_amt},{self.m_slow_f_amt},{self.m_soder_amt},)\n'
 
         # cd += f'change_axis({-(self.m_dft_glass_size - self.m_tip_diff)},{-y_max},,,,)\n'
         cd += f'change_axis({-x_max},{0},,,,)\n'
